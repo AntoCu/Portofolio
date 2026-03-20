@@ -13,10 +13,10 @@
       theme: {
         extend: {
           colors: {
-            spaceDark: '#050b0f',
-            spaceLight: '#e0f2fe',
-            spaceAccent: '#f97316', /* Orange Feu de camp */
-            spaceBlue: '#2b6c8c'
+            spaceDark: '#090C10',
+            spaceLight: '#FDF6E3',
+            spaceAccent: '#E87132',
+            spaceBlue: '#4ED4E6'
           },
           fontFamily: { sans: ['Lexend', 'sans-serif'], serif: ['Fraunces', 'serif'] }
         }
@@ -30,57 +30,117 @@
 
   <div class="star-field" id="stars"></div>
 
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl">
-    <div class="bg-[#050b0f]/60 backdrop-blur-md border border-spaceBlue/50 rounded-full px-3 py-2 flex justify-center gap-6 items-center shadow-[0_0_15px_rgba(43,108,140,0.3)]">
-      
-      <div class="flex items-center space-x-1 md:space-x-2">
-        <button onclick="flyTo(1)" id="nav-1" class="brutal-btn active px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.home">Moi</button>
-        <button onclick="flyTo(2)" id="nav-2" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.tech">Tech</button>
-        <button onclick="flyTo(3)" id="nav-3" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.projects">Projets</button>
-        <button onclick="flyTo(4)" id="nav-4" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.contact">Contact</button>
-        <button onclick="flyTo(5)" id="nav-5" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.extra">Secret</button>
-      </div>
+  <div class="md:hidden fixed top-4 left-4 z-[100] flex gap-3 bg-[#090C10]/80 backdrop-blur-md px-4 py-2 rounded-full border border-spaceBlue/50 shadow-[0_0_10px_rgba(78,212,230,0.2)]">
+    <button onclick="setLang('fr')" id="lang-fr-mob" class="font-black text-xs text-spaceLight">FR</button>
+    <button onclick="setLang('en')" id="lang-en-mob" class="font-bold text-xs text-spaceLight/40">EN</button>
+  </div>
 
-      <div class="flex items-center gap-2 border-l border-spaceBlue/50 pl-4">
+  <nav class="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-3xl">
+    <div class="bg-[#090C10]/80 backdrop-blur-md border border-spaceBlue/50 rounded-full px-8 py-3 flex justify-center gap-8 items-center shadow-[0_0_15px_rgba(78,212,230,0.3)]">
+      <div class="flex items-center space-x-3">
+        <button onclick="flyTo(1)" id="nav-1" class="brutal-btn active px-4 py-2 text-xs uppercase tracking-widest" data-i18n="nav.p1">Moi</button>
+        <button onclick="flyTo(2)" id="nav-2" class="brutal-btn px-4 py-2 text-xs uppercase tracking-widest" data-i18n="nav.p2">Tech</button>
+        <button onclick="flyTo(3)" id="nav-3" class="brutal-btn px-4 py-2 text-xs uppercase tracking-widest" data-i18n="nav.p3">Projets</button>
+        <button onclick="flyTo(4)" id="nav-4" class="brutal-btn px-4 py-2 text-xs uppercase tracking-widest" data-i18n="nav.p4">Contact</button>
+        <button onclick="flyTo(5)" id="nav-5" class="brutal-btn px-4 py-2 text-xs uppercase tracking-widest" data-i18n="nav.p5">Secret</button>
+      </div>
+      <div class="flex items-center gap-4 border-l border-spaceBlue/50 pl-8">
         <button onclick="setLang('fr')" id="lang-fr" class="font-black text-xs text-spaceLight hover:text-white transition">FR</button>
         <button onclick="setLang('en')" id="lang-en" class="font-bold text-xs text-spaceLight/40 hover:text-white transition">EN</button>
       </div>
-
     </div>
   </nav>
 
-  <<main class="relative w-full h-screen z-10">
+  <main id="main-scroll" class="relative w-full h-screen z-10">
+    
+    <div id="section-1" class="view-section">
+      <div id="p-1" class="planet-container active-planet" onclick="flyTo(1)"><img src="img/test.gif" class="w-full h-full object-contain scale-[1.7]"></div>
+      <div id="panel-1" class="content-panel active"></div>
+    </div>
 
-    <div id="p-1" class="planet-container" onclick="flyTo(1)"><img src="img/test.gif" alt="Planète 1" class="w-full h-full object-contain scale-[1.5]"></div>
-    <div id="p-2" class="planet-container" onclick="flyTo(2)"><img src="img/sombronce3.gif" alt="Planète 2" class="w-full h-full object-contai scale-[2]"></div>
-    <div id="p-3" class="planet-container" onclick="flyTo(3)"><img src="img/sablieres.gif" alt="Planète 3" class="w-full h-full object-contain scale-[1.5]"></div>
-    <div id="p-4" class="planet-container" onclick="flyTo(4)"><img src="img/atrebois.gif" alt="Planète 4" class="w-full h-full object-contain scale-[2]"></div>
-    <div id="p-5" class="planet-container" onclick="flyTo(5)"><img src="img/Leviate.gif" alt="Planète 5" class="w-full h-full object-contain scale-[1.5]"></div>
+    <div id="section-2" class="view-section">
+      <div id="p-2" class="planet-container" onclick="flyTo(2)"><img src="img/sombronce3.gif" class="w-full h-full object-contain scale-[2.5]"></div>
+      <div id="panel-2" class="content-panel"></div>
+    </div>
 
-    <div id="ship" class="engine-off">
+    <div id="section-3" class="view-section">
+      <div id="p-3" class="planet-container" onclick="flyTo(3)">
+       <img src="img/sablieres.gif" class="w-full h-full object-contain scale-[1.5]">
+      </div>
+      <div id="panel-3" class="content-panel"></div>
+    </div>
+
+    <div id="section-4" class="view-section">
+      <div id="p-4" class="planet-container" onclick="flyTo(4)"><img src="img/atrebois.gif" class="w-full h-full object-contain scale-[1.7]"></div>
+      <div id="panel-4" class="content-panel"></div>
+    </div>
+
+    <div id="section-5" class="view-section">
+      <div id="p-5" class="planet-container" onclick="flyTo(5)"><img src="img/Leviate.gif" class="w-full h-full object-contain scale-[2.2]"></div>
+      <div id="panel-5" class="content-panel"></div>
+    </div>
+
+    <div id="ship" class="engine-off hidden md:block">
       <div class="thruster"></div>
       <svg viewBox="0 0 16 16" width="100%" height="100%" style="shape-rendering: crispEdges;">
-        <path fill="#e0f2fe" d="M7 2 h2 v2 h2 v5 h2 v4 h-2 v-2 h-6 v2 h-2 v-4 h2 v-5 z" />
-        <path fill="#050b0f" d="M7 5 h2 v3 h-2 z" />
+        <path fill="#FDF6E3" d="M7 2 h2 v2 h2 v5 h2 v4 h-2 v-2 h-6 v2 h-2 v-4 h2 v-5 z" />
+        <path fill="#090C10" d="M7 5 h2 v3 h-2 z" />
       </svg>
     </div>
 
-    <div id="panel-1" class="content-panel active"></div>
-    <div id="panel-2" class="content-panel"></div>
-    <div id="panel-3" class="content-panel"></div>
-    <div id="panel-4" class="content-panel"></div>
-    <div id="panel-5" class="content-panel"></div>
-
   </main>
-<div id="image-modal" class="fixed inset-0 z-[200] hidden flex-col items-center justify-center bg-[#050b0f]/90 backdrop-blur-md opacity-0 transition-opacity duration-300 cursor-pointer" onclick="closeModal()">
+
+  <button class="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 bg-[#090C10]/90 backdrop-blur-md border-2 border-spaceAccent rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(232,113,50,0.6)] text-2xl transition-transform hover:scale-110" onclick="toggleMap()">🧭</button>
+
+  <div id="mobile-map" class="md:hidden fixed inset-0 z-[150] bg-[#090C10]/95 backdrop-blur-xl hidden flex-col items-center justify-center transition-opacity duration-300 opacity-0">
+    <h2 class="text-spaceAccent font-serif italic text-3xl absolute top-12">Radar Stellaire</h2>
+    <button class="absolute top-10 right-8 text-white text-4xl hover:text-spaceAccent transition" onclick="toggleMap()">×</button>
+    
+    <div class="relative w-[90vw] h-[70vh] max-h-[600px] border-2 border-spaceBlue/50 rounded-3xl bg-[#090C10] overflow-hidden mt-8 shadow-[inset_0_0_40px_rgba(78,212,230,0.15),0_0_20px_rgba(78,212,230,0.2)]"
+         style="background-image: linear-gradient(rgba(78, 212, 230, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(78, 212, 230, 0.15) 1px, transparent 1px); background-size: 30px 30px; background-position: center center;">
+      
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[500px] max-h-[500px] border border-spaceBlue/20 rounded-full pointer-events-none"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[250px] max-h-[250px] border border-spaceBlue/20 rounded-full pointer-events-none"></div>
+      
+      <div id="map-p-1" class="absolute w-24 h-24 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 15%; left: 25%;" onclick="flyOnMap(1)">
+        <img src="img/test.gif" class="w-full h-full object-contain drop-shadow-[0_0_5px_rgba(78,212,230,0.8)] group-active:scale-90 transition-transform scale-[1.7]">
+        <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Moi</span>
+      </div>
+      
+      <div id="map-p-2" class="absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 80%; left: 25%;" onclick="flyOnMap(2)">
+        <img src="img/sombronce3.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[2.5]">
+        <span class="absolute -bottom-6 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Tech</span>
+      </div>
+      
+      <div id="map-p-3" class="absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 25%; left: 80%;" onclick="flyOnMap(3)">
+        <img src="img/sablieres.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[1.5]">
+        <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Projets</span>
+      </div>
+      
+      <div id="map-p-4" class="absolute w-20 h-20 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 75%; left: 75%;" onclick="flyOnMap(4)">
+        <img src="img/atrebois.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[1.7]">
+        <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Contact</span>
+      </div>
+      
+      <div id="map-p-5" class="absolute w-32 h-32 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 50%; left: 50%;" onclick="flyOnMap(5)">
+        <img src="img/Leviate.gif" class="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(232,113,50,0.3)] group-active:scale-90 transition-transform scale-[2.2]">
+        <span class="absolute -bottom-4 text-[10px] font-black uppercase text-spaceAccent tracking-widest bg-[#090C10]/80 px-2 rounded">Léviathe</span>
+      </div>
+
+      <div id="map-ship" class="absolute w-8 h-8 -translate-x-1/2 -translate-y-1/2 z-50 transition-all duration-1000 ease-in-out engine-off">
+        <div class="thruster" style="bottom: -5px; width: 8px; height: 12px;"></div>
+        <svg viewBox="0 0 16 16" width="100%" height="100%" style="shape-rendering: crispEdges;"><path fill="#FDF6E3" d="M7 2 h2 v2 h2 v5 h2 v4 h-2 v-2 h-6 v2 h-2 v-4 h2 v-5 z"/><path fill="#090C10" d="M7 5 h2 v3 h-2 z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <div id="image-modal" class="fixed inset-0 z-[200] hidden flex-col items-center justify-center bg-[#090C10]/90 backdrop-blur-md opacity-0 transition-opacity duration-300 cursor-pointer" onclick="closeModal()">
     <img id="modal-img" src="" alt="Zoom" class="max-w-[90vw] max-h-[75vh] rounded-xl shadow-[0_0_40px_rgba(78,212,230,0.4)] object-contain border border-spaceBlue/50">
     <p id="modal-caption" class="text-spaceLight mt-6 font-bold tracking-widest uppercase text-center"></p>
     <p class="text-spaceAccent text-xs mt-2 opacity-60">(Cliquez n'importe où pour fermer)</p>
   </div>
+
   <script src="data.js"></script>
   <script src="script.js"></script>
-</body>
-</html>
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 const portfolioData = {
     fr: {
         // Nav
-        nav: { p1: "Moi", p2: "Tech", p3: "Projets", p4: "Contact", p5: "Mobilité" },
+        nav: { p1: "Home", p2: "Compétences", p3: "Projets", p4: "Contact", p5: "Mobilité" },
 
         // P1 : MOI
         moi: {
