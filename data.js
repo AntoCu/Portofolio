@@ -6,8 +6,8 @@ const portfolioData = {
         // P1 : MOI
         moi: {
             titre: "Ingénieur informatique",
-            accent: "Junior",
-            role: "Diplomé de Cytech PAU",
+            accent: "Etudiant",
+            role: "ING3 Cytech PAU",
             description: "Bonjour, bienvenue sur mon portfolio spatial. Cliquez sur les planètes pour retrouver sur chacune des planetes mon univers.",
             photo: "img/moi.jpg"
         },
@@ -92,6 +92,80 @@ const portfolioData = {
                 { src: "img/i6.jpg", legende: "Aviva Stadium" },
                 { src: "img/i7.jpg", legende: "Aviva Stadium 2" },
                 { src: "img/i8.jpg", legende: "Jardins je sais plus ou " },
+            ]
+        }
+    },
+    // --- VERSION ANGLAISE TRADUITE ---
+    en: {
+        nav: { p1: "Home", p2: "Competences", p3: "Works", p4: "Contact", p5: "Mobility" },
+        moi: {
+            titre: "Computer Engineer", accent: "Student.", role: "ING3 Cytech PAU",
+            description: "Welcome to my space porfolio. Click on the planets to discover my universe on each",
+            photo: "img/moi.jpg"
+        },
+        tech: {
+            titre: "Competences",
+            categories: [
+                {
+                    nom: "Front-end",
+                    icon: "💻",
+                    skills: "React, Angular, TypeScript, Tailwind CSS, CSS"
+                },
+                {
+                    nom: "Back-end",
+                    icon: "⚙️",
+                    skills: "Node.js, Python, PHP, API REST, PostgreSQL, MongoDB, Nitro"
+                },
+                {
+                    nom: "Outils",
+                    icon: "🛠️",
+                    skills: "Git, GitHub / GitLab, Figma, Canva, Pixel Art"
+                },
+                {
+                    nom: "DevOps",
+                    icon: "🚀",
+                    skills: "Docker, Kubernetes, AWS, Google Cloud, CI/CD (GitHub Actions), Vercel"
+                },
+                {
+                    nom: "Soft-Skills",
+                    icon: "🤝",
+                    skills: "Autonomy, Teamwork, Curiosity, Communication"
+                }
+
+            ]
+        },
+        projets: {
+            titre: "Works",
+            principaux: [
+                { nom: "Jeu Geo", desc: "Jeu Geo is a web game where the user has to associates plates to countries", github: "#" },
+                { nom: "Morphing", desc: "Project of image morphing realized during ING1 in Java and JavaFX", github: "#" }
+            ],
+            secondaires: [
+                { nom: "Historidle", desc: "Culture game based on history made in Java Spring Boot", github: "#" },
+                { nom: "CyMeteo", desc: "Application réalisé en C en première année, gestion et analyse d'une banque de donnée météo", github: "https://gitlab.etude.cy-tech.fr/cuyalaanto/rip-n-1" },
+                { nom: "Website Justice Restaurative", desc: "Website for a charity", github: "https://gitlab.etude.cy-tech.fr/projetinfos2/projet-justice-restaurative" },
+                { nom: "Instagram Replica", desc: "Replica of Instagram made in Ireland, in python with Firestore and Firebase", github: "https://github.com/AntoCu/InstagramReplicas" }
+            ]
+        },
+        contact: {
+            titre: "Contact", sous_titre: "If you want to reach me, find me on :",
+            liens: [
+                { nom: "Email", url: "mailto:cuyalaanto.cy-tech@.fr", texte: "Send a mail" },
+                { nom: "GitHub", url: "https://github.com/AntoCu", texte: "See my projects" },
+                { nom: "LinkedIn", url: "https://linkedin.com/in/antonin-cuyala-b0b7b1291", texte: "Linkedin" }
+            ]
+        },
+        mobilite: {
+            titre: "Expeditions", sous_titre: "Always ready to explore new horizons.",
+            photos: [
+                { src: "img/i1.jpg", legende: "Liverpool Fan Pub" },
+                { src: "img/i2.jpg", legende: "Garden" },
+                { src: "img/i3.jpg", legende: "idk where but pretty" },
+                { src: "img/i4.jpg", legende: "Jail" },
+                { src: "img/i5.jpg", legende: "Temple Bar Saint Patrick" },
+                { src: "img/i6.jpg", legende: "Aviva Stadium" },
+                { src: "img/i7.jpg", legende: "Aviva Stadium 2" },
+                { src: "img/i8.jpg", legende: "Garden" },
             ]
         }
     }
