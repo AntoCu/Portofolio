@@ -59,13 +59,13 @@
     </div>
 
     <div id="section-2" class="view-section">
-      <div id="p-2" class="planet-container" onclick="flyTo(2)"><img src="img/sombronce3.gif" class="w-full h-full object-contain scale-[2]"></div>
+      <div id="p-2" class="planet-container" onclick="flyTo(2)"><img src="img/sombronce3.gif" class="w-full h-full object-contain"></div>
       <div id="panel-2" class="content-panel"></div>
     </div>
 
     <div id="section-3" class="view-section">
       <div id="p-3" class="planet-container" onclick="flyTo(3)">
-       <img src="img/sablieres.gif" class="w-full h-full object-contain scale-[2] ">
+       <img src="img/sablieres.gif" class="w-full h-full object-contain scale-[1.2] ">
       </div>
       <div id="panel-3" class="content-panel"></div>
     </div>
@@ -93,7 +93,7 @@
   <button class="md:hidden fixed bottom-6 right-6 z-[100] w-14 h-14 bg-[#090C10]/90 backdrop-blur-md border-2 border-spaceAccent rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(232,113,50,0.6)] text-2xl transition-transform hover:scale-110" onclick="toggleMap()">🧭</button>
 
   <div id="mobile-map" class="md:hidden fixed inset-0 z-[150] bg-[#090C10]/95 backdrop-blur-xl hidden flex-col items-center justify-center transition-opacity duration-300 opacity-0">
-    <h2 class="text-spaceAccent font-serif italic text-3xl absolute top-12">Radar Stellaire</h2>
+    <h2 class="text-spaceAccent font-serif italic text-3xl absolute top-12">Map</h2>
     <button class="absolute top-10 right-8 text-white text-4xl hover:text-spaceAccent transition" onclick="toggleMap()">×</button>
     
     <div class="relative w-[90vw] h-[70vh] max-h-[600px] border-2 border-spaceBlue/50 rounded-3xl bg-[#090C10] overflow-hidden mt-8 shadow-[inset_0_0_40px_rgba(78,212,230,0.15),0_0_20px_rgba(78,212,230,0.2)]"
@@ -103,27 +103,27 @@
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[250px] max-h-[250px] border border-spaceBlue/20 rounded-full pointer-events-none"></div>
       
       <div id="map-p-1" class="absolute w-24 h-24 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 15%; left: 25%;" onclick="flyOnMap(1)">
-        <img src="img/test.gif" class="w-full h-full object-contain drop-shadow-[0_0_5px_rgba(78,212,230,0.8)] group-active:scale-90 transition-transform scale-[1.7]">
-        <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Moi</span>
+        <img src="img/test.gif" class="w-full h-full object-contain drop-shadow-[0_0_5px_rgba(78,212,230,0.8)] group-active:scale-90 transition-transform">
+        <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Home</span>
       </div>
       
       <div id="map-p-2" class="absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 80%; left: 25%;" onclick="flyOnMap(2)">
-        <img src="img/sombronce3.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[2.5]">
-        <span class="absolute -bottom-6 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Tech</span>
+        <img src="img/sombronce3.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform">
+        <span class="absolute -bottom-6 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Compétences</span>
       </div>
       
       <div id="map-p-3" class="absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 25%; left: 80%;" onclick="flyOnMap(3)">
-        <img src="img/sablieres.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[1.5]">
+        <img src="img/sablieres.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform ">
         <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Projets</span>
       </div>
       
       <div id="map-p-4" class="absolute w-20 h-20 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 75%; left: 75%;" onclick="flyOnMap(4)">
-        <img src="img/atrebois.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[1.7]">
+        <img src="img/atrebois.gif" class="w-full h-full object-contain group-active:scale-90 transition-transform scale-[1.6]">
         <span class="absolute -bottom-8 text-[10px] font-black uppercase text-spaceBlue tracking-widest bg-[#090C10]/80 px-2 rounded">Contact</span>
       </div>
       
       <div id="map-p-5" class="absolute w-32 h-32 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center cursor-pointer group" style="top: 50%; left: 50%;" onclick="flyOnMap(5)">
-        <img src="img/Leviate.gif" class="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(232,113,50,0.3)] group-active:scale-90 transition-transform scale-[2.2]">
+        <img src="img/Leviate.gif" class="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(232,113,50,0.3)] group-active:scale-90 transition-transform ">
         <span class="absolute -bottom-4 text-[10px] font-black uppercase text-spaceAccent tracking-widest bg-[#090C10]/80 px-2 rounded">Léviathe</span>
       </div>
 
