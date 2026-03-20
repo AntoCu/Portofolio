@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Outer Wilds Space</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&family=Fraunces:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            spaceDark: '#050b0f',
+            spaceLight: '#e0f2fe',
+            spaceAccent: '#f97316', /* Orange Feu de camp */
+            spaceBlue: '#2b6c8c'
+          },
+          fontFamily: { sans: ['Lexend', 'sans-serif'], serif: ['Fraunces', 'serif'] }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection:bg-spaceBlue selection:text-white">
+
+  <div class="star-field" id="stars"></div>
+
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl">
+    <div class="bg-[#050b0f]/60 backdrop-blur-md border border-spaceBlue/50 rounded-full px-3 py-2 flex justify-center gap-6 items-center shadow-[0_0_15px_rgba(43,108,140,0.3)]">
+      
+      <div class="flex items-center space-x-1 md:space-x-2">
+        <button onclick="flyTo(1)" id="nav-1" class="brutal-btn active px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.home">Moi</button>
+        <button onclick="flyTo(2)" id="nav-2" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.tech">Tech</button>
+        <button onclick="flyTo(3)" id="nav-3" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.projects">Projets</button>
+        <button onclick="flyTo(4)" id="nav-4" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.contact">Contact</button>
+        <button onclick="flyTo(5)" id="nav-5" class="brutal-btn px-4 py-2 text-[10px] md:text-xs uppercase tracking-widest" data-i18n="nav.extra">Secret</button>
+      </div>
+
+      <div class="flex items-center gap-2 border-l border-spaceBlue/50 pl-4">
+        <button onclick="setLang('fr')" id="lang-fr" class="font-black text-xs text-spaceLight hover:text-white transition">FR</button>
+        <button onclick="setLang('en')" id="lang-en" class="font-bold text-xs text-spaceLight/40 hover:text-white transition">EN</button>
+      </div>
+
+    </div>
+  </nav>
+
+  <<main class="relative w-full h-screen z-10">
+
+    <div id="p-1" class="planet-container" onclick="flyTo(1)"><img src="img/test.gif" alt="Planète 1" class="w-full h-full object-contain scale-[1.5]"></div>
+    <div id="p-2" class="planet-container" onclick="flyTo(2)"><img src="img/sombronce3.gif" alt="Planète 2" class="w-full h-full object-contai scale-[2]"></div>
+    <div id="p-3" class="planet-container" onclick="flyTo(3)"><img src="img/sablieres.gif" alt="Planète 3" class="w-full h-full object-contain scale-[1.5]"></div>
+    <div id="p-4" class="planet-container" onclick="flyTo(4)"><img src="img/atrebois.gif" alt="Planète 4" class="w-full h-full object-contain scale-[2]"></div>
+    <div id="p-5" class="planet-container" onclick="flyTo(5)"><img src="img/Leviate.gif" alt="Planète 5" class="w-full h-full object-contain scale-[1.5]"></div>
+
+    <div id="ship" class="engine-off">
+      <div class="thruster"></div>
+      <svg viewBox="0 0 16 16" width="100%" height="100%" style="shape-rendering: crispEdges;">
+        <path fill="#e0f2fe" d="M7 2 h2 v2 h2 v5 h2 v4 h-2 v-2 h-6 v2 h-2 v-4 h2 v-5 z" />
+        <path fill="#050b0f" d="M7 5 h2 v3 h-2 z" />
+      </svg>
+    </div>
+
+    <div id="panel-1" class="content-panel active"></div>
+    <div id="panel-2" class="content-panel"></div>
+    <div id="panel-3" class="content-panel"></div>
+    <div id="panel-4" class="content-panel"></div>
+    <div id="panel-5" class="content-panel"></div>
+
+  </main>
+<div id="image-modal" class="fixed inset-0 z-[200] hidden flex-col items-center justify-center bg-[#050b0f]/90 backdrop-blur-md opacity-0 transition-opacity duration-300 cursor-pointer" onclick="closeModal()">
+    <img id="modal-img" src="" alt="Zoom" class="max-w-[90vw] max-h-[75vh] rounded-xl shadow-[0_0_40px_rgba(78,212,230,0.4)] object-contain border border-spaceBlue/50">
+    <p id="modal-caption" class="text-spaceLight mt-6 font-bold tracking-widest uppercase text-center"></p>
+    <p class="text-spaceAccent text-xs mt-2 opacity-60">(Cliquez n'importe où pour fermer)</p>
+  </div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
