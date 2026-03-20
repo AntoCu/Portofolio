@@ -100,7 +100,7 @@ body {
   min-width: 6rem;
   max-width: 12rem;
   aspect-ratio: 1/1;
-  top: 8%;
+  top: 6%;
   left: 8%;
   --float-dur: 7s;
 }
@@ -121,7 +121,7 @@ body {
   max-width: 15rem;
   aspect-ratio: 1/1;
   top: 15%;
-  left: 75%;
+  left: 80%;
   --float-dur: 8s;
 }
 
@@ -131,7 +131,7 @@ body {
   max-width: 11rem;
   aspect-ratio: 1/1;
   top: 70%;
-  left: 75%;
+  left: 80%;
   --float-dur: 6s;
 }
 
@@ -140,7 +140,7 @@ body {
   min-width: 6.5rem;
   max-width: 14rem;
   aspect-ratio: 1/1;
-  top: 40%;
+  top: 35%;
   left: 10%;
   --float-dur: 9s;
 }

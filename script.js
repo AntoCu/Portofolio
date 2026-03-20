@@ -12,9 +12,10 @@ for (let i = 0; i < 80; i++) {
   field.appendChild(star);
 }
 
+// Le petit badge planétaire : 100% opaque, bien calé en haut à droite !
 const planetBadge = (src) => `
-  <div class="hidden md:block absolute top-4 right-4 md:top-6 md:right-6 w-20 h-20 md:w-28 md:h-28 opacity-100 pointer-events-none">
-    <img src="${src}" class="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(78,212,230,0.6)]" style="image-rendering: pixelated;">
+  <div class="hidden md:block absolute top-8 right-10 w-20 h-20 md:w-28 md:h-28 opacity-100 pointer-events-none z-10">
+    <img src="${src}" class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(78,212,230,0.6)]" style="image-rendering: pixelated;">
   </div>
 `;
 
@@ -30,8 +31,9 @@ function renderContent(lang) {
   for(let i=1; i<=5; i++) document.getElementById(`nav-${i}`).innerText = data.nav[`p${i}`];
 
   // P1 : MOI
+  // On ajoute un md:mt-20 pour pousser le contenu en dessous du badge
   document.getElementById('panel-1').innerHTML = planetBadge('img/test.gif') + `
-    <div class="flex flex-col md:flex-row gap-8 items-center text-center md:text-left mt-4 md:mt-0">
+    <div class="flex flex-col md:flex-row gap-8 items-center text-center md:text-left mt-4 md:mt-20">
       <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full overflow-hidden border-4 border-spaceBlue/50 shadow-[0_0_15px_rgba(43,108,140,0.5)]"><img src="${data.moi.photo}" class="w-full h-full object-cover"></div>
       <div>
         <h1 class="text-4xl md:text-6xl font-black mb-2 uppercase leading-none text-white">${data.moi.titre} <br><span class="font-serif italic text-spaceAccent">${data.moi.accent}</span></h1>
@@ -50,8 +52,10 @@ function renderContent(lang) {
   `).join('') || '';
 
   document.getElementById('panel-2').innerHTML = planetBadge('img/sombronce3.gif') + `
-    <h2 class="text-4xl md:text-5xl font-serif italic mb-8 text-center text-white">${data.tech.titre}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${techHtml}</div>
+    <div class="mt-4 md:mt-20">
+      <h2 class="text-4xl md:text-5xl font-serif italic mb-8 text-center text-white">${data.tech.titre}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${techHtml}</div>
+    </div>
   `;
 
   // P3 : PROJETS
@@ -73,10 +77,12 @@ function renderContent(lang) {
   `).join('') || '';
 
   document.getElementById('panel-3').innerHTML = planetBadge('img/sablieres.gif') + `
-    <h2 class="text-4xl md:text-5xl font-serif italic mb-8 text-center text-white">${data.projets.titre}</h2>
-    <div class="mb-8">${mainProjHtml}</div>
-    <div class="flex items-center gap-4 mb-6 opacity-60"><div class="h-px bg-spaceBlue flex-1"></div><h3 class="text-xs font-black tracking-widest uppercase text-spaceBlue">Autres expéditions</h3><div class="h-px bg-spaceBlue flex-1"></div></div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${secProjHtml}</div>
+    <div class="mt-4 md:mt-20">
+      <h2 class="text-4xl md:text-5xl font-serif italic mb-8 text-center text-white">${data.projets.titre}</h2>
+      <div class="mb-8">${mainProjHtml}</div>
+      <div class="flex items-center gap-4 mb-6 opacity-60"><div class="h-px bg-spaceBlue flex-1"></div><h3 class="text-xs font-black tracking-widest uppercase text-spaceBlue">Autres expéditions</h3><div class="h-px bg-spaceBlue flex-1"></div></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${secProjHtml}</div>
+    </div>
   `;
 
   // P4 : CONTACT
@@ -85,12 +91,14 @@ function renderContent(lang) {
   `).join('') || '';
 
   document.getElementById('panel-4').innerHTML = planetBadge('img/atrebois.gif') + `
-    <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-center text-white">${data.contact.titre}</h2>
-    <p class="text-center font-bold mb-8 text-spaceLight/60">${data.contact.sous_titre}</p>
-    <div class="space-y-4 max-w-md mx-auto">${contactHtml}</div>
+    <div class="mt-4 md:mt-20">
+      <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-center text-white">${data.contact.titre}</h2>
+      <p class="text-center font-bold mb-8 text-spaceLight/60">${data.contact.sous_titre}</p>
+      <div class="space-y-4 max-w-md mx-auto">${contactHtml}</div>
+    </div>
   `;
 
-  // P5 : MOBILITÉ (Mise à jour pour la Lightbox sécurisée)
+  // P5 : MOBILITÉ
   let mobHtml = data.mobilite.photos?.map((photo, index) => `
     <div class="border border-spaceBlue/50 rounded-xl overflow-hidden bg-spaceBlue/10 p-2 cursor-pointer hover:bg-spaceBlue/30 transition group" onclick="openModal(${index})">
       <div class="overflow-hidden rounded-lg mb-2"><img src="${photo.src}" alt="${photo.legende}" class="w-full h-32 object-cover group-hover:scale-110 transition duration-500"></div>
@@ -99,9 +107,11 @@ function renderContent(lang) {
   `).join('') || '';
 
   document.getElementById('panel-5').innerHTML = planetBadge('img/Leviate.gif') + `
-    <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-center text-spaceAccent">${data.mobilite.titre}</h2>
-    <p class="text-center font-bold mb-8 text-spaceLight/60">${data.mobilite.sous_titre}</p>
-    <div class="grid grid-cols-2 gap-4">${mobHtml}</div>
+    <div class="mt-4 md:mt-20">
+      <h2 class="text-4xl md:text-5xl font-serif italic mb-2 text-center text-spaceAccent">${data.mobilite.titre}</h2>
+      <p class="text-center font-bold mb-8 text-spaceLight/60">${data.mobilite.sous_titre}</p>
+      <div class="grid grid-cols-2 gap-4">${mobHtml}</div>
+    </div>
   `;
 
   startTyping(data.moi.role);
@@ -239,12 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================
-// 🖼️ LIGHTBOX PHOTOS (Mise à jour sécurisée)
+// 🖼️ LIGHTBOX PHOTOS
 // =========================================
 function openModal(index) {
-  // Le script va directement lire les bonnes infos dans data.js grâce à l'index !
   const photoData = portfolioData[currentLang].mobilite.photos[index];
-  
   const modal = document.getElementById('image-modal');
   document.getElementById('modal-img').src = photoData.src;
   document.getElementById('modal-caption').innerText = photoData.legende;
