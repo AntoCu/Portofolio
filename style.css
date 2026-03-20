@@ -1,16 +1,22 @@
 /* Empêcher la sélection bleue et le glisser-déposer des images */
 * {
-  user-select: none; /* Empêche de surligner le texte/vide en bleu */
-  -webkit-user-drag: none; /* Empêche de "saisir" les images sur Chrome/Safari */
+  user-select: none;
+  /* Empêche de surligner le texte/vide en bleu */
+  -webkit-user-drag: none;
+  /* Empêche de "saisir" les images sur Chrome/Safari */
 }
 
 /* On autorise quand même la sélection du texte dans les panneaux et les inputs ! */
-.content-panel, input, textarea, p {
-  user-select: text; 
+.content-panel,
+input,
+textarea,
+p {
+  user-select: text;
 }
 
 body {
-  background-color: #050b0f; /* Un noir bleuté abyssal */
+  background-color: #050b0f;
+  /* Un noir bleuté abyssal */
   color: #132A13;
   font-family: 'Lexend', sans-serif;
   overflow: hidden;
@@ -22,7 +28,7 @@ body {
   position: absolute;
   inset: 0;
   /* On crée un fond étoilé avec des "nuages" de nébuleuse */
-  background: 
+  background:
     radial-gradient(circle at 20% 30%, rgba(43, 108, 140, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(103, 58, 138, 0.15) 0%, transparent 50%),
     linear-gradient(to bottom, #020406 0%, #08151c 100%);
@@ -40,13 +46,30 @@ body {
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.1; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8); }
+  0% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.8);
+  }
 }
+
 @keyframes nebulaPulse {
-  0% { transform: scale(1) translate(0px, 0px); opacity: 0.7; }
-  100% { transform: scale(1.1) translate(-2%, 3%); opacity: 1; }
+  0% {
+    transform: scale(1) translate(0px, 0px);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.1) translate(-2%, 3%);
+    opacity: 1;
+  }
 }
+
 /* --- PLANÈTES PC --- */
 .planet-container {
   position: absolute;
@@ -63,110 +86,263 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-1rem); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-1rem);
+  }
 }
 
-#p-1 { width: 14vw; min-width: 6rem;  max-width: 12rem; aspect-ratio: 1/1; top: 8%;  left: 8%;  --float-dur: 7s; }
-#p-2 { width: 20vw; min-width: 8rem;  max-width: 16rem; aspect-ratio: 1/1; top: 70%; left: 8%;  --float-dur: 5s; } 
-#p-3 { width: 18vw; min-width: 7rem;  max-width: 15rem; aspect-ratio: 1/1; top: 15%; left: 75%; --float-dur: 8s; }
-#p-4 { width: 13vw; min-width: 5rem;  max-width: 11rem; aspect-ratio: 1/1; top: 70%; left: 75%; --float-dur: 6s; }
-#p-5 { width: 16vw; min-width: 6.5rem;max-width: 14rem; aspect-ratio: 1/1; top: 40%; left: 10%; --float-dur: 9s; } 
+#p-1 {
+  width: 14vw;
+  min-width: 6rem;
+  max-width: 12rem;
+  aspect-ratio: 1/1;
+  top: 8%;
+  left: 8%;
+  --float-dur: 7s;
+}
 
-.planet-container img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+#p-2 {
+  width: 20vw;
+  min-width: 8rem;
+  max-width: 16rem;
+  aspect-ratio: 1/1;
+  top: 70%;
+  left: 8%;
+  --float-dur: 5s;
+}
+
+#p-3 {
+  width: 18vw;
+  min-width: 7rem;
+  max-width: 15rem;
+  aspect-ratio: 1/1;
+  top: 15%;
+  left: 75%;
+  --float-dur: 8s;
+}
+
+#p-4 {
+  width: 13vw;
+  min-width: 5rem;
+  max-width: 11rem;
+  aspect-ratio: 1/1;
+  top: 70%;
+  left: 75%;
+  --float-dur: 6s;
+}
+
+#p-5 {
+  width: 16vw;
+  min-width: 6.5rem;
+  max-width: 14rem;
+  aspect-ratio: 1/1;
+  top: 40%;
+  left: 10%;
+  --float-dur: 9s;
+}
+
+.planet-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
 
 /* --- VAISSEAU --- */
 #ship {
-  position: absolute; top: 0; left: 0; 
-  width: 3rem; height: 3rem; 
-  z-index: 100; pointer-events: none;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; image-rendering: pixelated;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 100;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+  image-rendering: pixelated;
 }
 
 .thruster {
-  position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%); 
-  width: 0.8rem; height: 0;
-  background: #E87132; transition: height 0.1s;
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.8rem;
+  height: 0;
+  background: #E87132;
+  transition: height 0.1s;
 }
 
-.engine-on .thruster { height: 1rem; animation: pixel-fire 0.1s steps(2) infinite alternate; }
+.engine-on .thruster {
+  height: 1rem;
+  animation: pixel-fire 0.1s steps(2) infinite alternate;
+}
 
 @keyframes pixel-fire {
-  0% { height: 0.8rem; background: #E87132; box-shadow: 0 0.3rem 0 #A13C16; } 
-  100% { height: 1.5rem; background: #4ED4E6; box-shadow: 0 0.3rem 0 #E87132; } 
+  0% {
+    height: 0.8rem;
+    background: #E87132;
+    box-shadow: 0 0.3rem 0 #A13C16;
+  }
+
+  100% {
+    height: 1.5rem;
+    background: #4ED4E6;
+    box-shadow: 0 0.3rem 0 #E87132;
+  }
 }
 
 /* --- PANNEAUX (Journal de Bord PC) --- */
 .content-panel {
   /* On le place à 55% et on réduit sa hauteur max pour qu'il n'entre JAMAIS en collision avec la nav ! */
-  position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%) scale(0.95);
-  width: 90vw; max-width: 56rem; max-height: 75vh; overflow-y: auto;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 90vw;
+  max-width: 56rem;
+  max-height: 75vh;
+  overflow-y: auto;
   background: rgba(20, 15, 12, 0.9);
-  backdrop-filter: blur(0.5rem); -webkit-backdrop-filter: blur(0.5rem);
-  border: 2px solid rgba(232, 113, 50, 0.3); border-top: 2px solid rgba(232, 113, 50, 0.7);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  border: 2px solid rgba(232, 113, 50, 0.3);
+  border-top: 2px solid rgba(232, 113, 50, 0.7);
   border-radius: 1rem;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.9), inset 0 0 2rem rgba(232, 113, 50, 0.05);
-  padding: 2.5rem; color: #FDF6E3;
-  opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 50;
+  padding: 2.5rem;
+  color: #FDF6E3;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
 }
 
-.content-panel.active { opacity: 1; transform: translate(-50%, -50%) scale(1); pointer-events: auto; transition-delay: 0s; }
+.content-panel.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
 
 /* --- BOUTONS --- */
 .brutal-btn {
-  border: 1px solid rgba(232, 113, 50, 0.4); transition: all 0.2s ease; 
-  font-weight: 700; color: #E87132; background: rgba(20, 15, 12, 0.8);
-  cursor: pointer; border-radius: 0.4rem;
+  border: 1px solid rgba(232, 113, 50, 0.4);
+  transition: all 0.2s ease;
+  font-weight: 700;
+  color: #E87132;
+  background: rgba(20, 15, 12, 0.8);
+  cursor: pointer;
+  border-radius: 0.4rem;
 }
 
-.brutal-btn:hover { transform: translateY(-0.15rem); box-shadow: 0 0 1rem rgba(232, 113, 50, 0.4); background: rgba(232, 113, 50, 0.15); color: #FDF6E3; }
-.brutal-btn.active { background-color: #E87132 !important; border-color: #FF9D47; box-shadow: 0 0 1.2rem rgba(232, 113, 50, 0.5); color: #090C10 !important; }
+.brutal-btn:hover {
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0 1rem rgba(232, 113, 50, 0.4);
+  background: rgba(232, 113, 50, 0.15);
+  color: #FDF6E3;
+}
 
-.cursor { animation: blink 1s step-end infinite; border-left: 0.25rem solid #4ED4E6; margin-left: 0.3rem; }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.brutal-btn.active {
+  background-color: #E87132 !important;
+  border-color: #FF9D47;
+  box-shadow: 0 0 1.2rem rgba(232, 113, 50, 0.5);
+  color: #090C10 !important;
+}
 
-::-webkit-scrollbar { width: 0.4rem; }
-::-webkit-scrollbar-thumb { background: rgba(78, 212, 230, 0.4); border-radius: 1rem; }
+.cursor {
+  animation: blink 1s step-end infinite;
+  border-left: 0.25rem solid #4ED4E6;
+  margin-left: 0.3rem;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(78, 212, 230, 0.4);
+  border-radius: 1rem;
+}
 
 /* =========================================
    📱 OVERHAUL MOBILE (TÉLÉPHONE UNIQUEMENT)
    ========================================= */
 
 @media (min-width: 769px) {
-  .view-section { display: contents; } 
+  .view-section {
+    display: contents;
+  }
 }
 
 @media (max-width: 768px) {
   #main-scroll {
-    overflow-y: scroll;
-    scroll-snap-type: y proximity; /* Proximity au lieu de mandatory = plus de liberté ! */
-    height: 100dvh; 
-    scroll-behavior: smooth;
+    overflow-y: auto;
+    scroll-snap-type: y proximity;
+    height: 100dvh;
+
+    /* 🌟 La magie pour un scroll fluide et naturel sur mobile (inertie) */
+    -webkit-overflow-scrolling: touch;
   }
 
   .view-section {
-    position: relative; width: 100vw; 
+    position: relative;
+    width: 100vw;
     /* Correction du double scroll : la section grandit si besoin ! */
-    height: auto; min-height: 100dvh;
+    height: auto;
+    min-height: 100dvh;
     scroll-snap-align: start;
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    padding: 1rem; padding-top: 5rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    padding-top: 5rem;
   }
 
-  #p-1, #p-2, #p-3, #p-4, #p-5 {
-    position: relative !important; top: auto !important; left: auto !important;
-    width: 35vw !important; height: 35vw !important; max-width: 150px !important;
+  #p-1,
+  #p-2,
+  #p-3,
+  #p-4,
+  #p-5 {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 35vw !important;
+    height: 35vw !important;
+    max-width: 150px !important;
     margin-bottom: 2rem !important;
     animation: float 4s ease-in-out infinite alternate !important;
   }
 
   .content-panel {
-    position: relative !important; top: auto !important; left: auto !important; transform: none !important;
-    width: 100% !important; 
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
     /* Fini le double scroll ! Le panneau prend toute la place nécessaire */
-    max-height: none !important; overflow-y: visible !important;
+    max-height: none !important;
+    overflow-y: visible !important;
     margin-bottom: 3rem !important;
-    opacity: 1 !important; pointer-events: auto !important;
-    border-radius: 1rem; padding: 1.5rem;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    border-radius: 1rem;
+    padding: 1.5rem;
   }
 }
