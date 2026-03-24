@@ -71,7 +71,7 @@ function renderContent(lang) {
 
   let secProjHtml = data.projets.secondaires?.map(p => `
     <div class="border border-spaceBlue/30 rounded-xl p-4 bg-spaceBlue/5 flex flex-col justify-between hover:bg-spaceBlue/20 transition">
-      <div><h3 class="font-black italic text-spaceAccent mb-2 uppercase text-sm">${p.nom}</h3><p class="text-[10px] font-bold mb-4 text-spaceLight/70">${p.desc}</p></div>
+      <div><h3 class="font-black italic text-spaceAccent mb-2 uppercase text-sm">${p.nom}</h3><p class="text-xs font-bold mb-4 ">${p.desc}</p></div>
       <a href="${p.github}" target="_blank" class="brutal-btn w-full py-1 text-[9px] text-center block uppercase tracking-widest border-spaceBlue/40 text-spaceBlue">Code</a>
     </div>
   `).join('') || '';
@@ -102,7 +102,7 @@ function renderContent(lang) {
   let mobHtml = data.mobilite.photos?.map((photo, index) => `
     <div class="border border-spaceBlue/50 rounded-xl overflow-hidden bg-spaceBlue/10 p-2 cursor-pointer hover:bg-spaceBlue/30 transition group" onclick="openModal(${index})">
       <div class="overflow-hidden rounded-lg mb-2"><img src="${photo.src}" alt="${photo.legende}" class="w-full h-32 object-cover group-hover:scale-110 transition duration-500"></div>
-      <p class="text-[10px] text-center text-spaceLight/60 italic group-hover:text-spaceLight transition">${photo.legende}</p>
+      <p class="text-xs text-center  italic group-hover:text-spaceLight transition">${photo.legende}</p>
     </div>
   `).join('') || '';
 
